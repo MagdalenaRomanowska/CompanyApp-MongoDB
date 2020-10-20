@@ -19,6 +19,11 @@ mongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true, useUni
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
 
+    app.use((req, res, next) => {//middlewre.
+      req.db = db;//referencję do obiektu db przypniemy do req. Teraz każdy endpoint będzie mógł łatwo odwołać się do bazy danych poprzez req.db, nawet jeśli będzie znajdował się w innym pliku niż server.js.
+      next();
+    });
+
     app.use('/api', employeesRoutes);
     app.use('/api', departmentsRoutes);
     app.use('/api', productsRoutes);
@@ -29,16 +34,6 @@ mongoClient.connect('mongodb://localhost:27017', { useNewUrlParser: true, useUni
 
     app.listen('8000', () => {
       console.log('Server is running on port: 8000');
-    });
-
-    db.collection('employees').find({ department: 'IT' }).toArray((err, data) => {
-      if(!err) {
-        console.log(data)
-      }
-    });
-
-    db.collection('departments').insertOne({ name: 'Management' }, err => {
-      if(err) console.log('err');
     });
 
   }
