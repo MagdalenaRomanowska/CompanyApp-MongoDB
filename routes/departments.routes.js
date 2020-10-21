@@ -63,7 +63,7 @@ router.put('/departments/:id', async (req, res) => {
     else res.status(404).json({ message: 'Not found...' });
   }
   catch(err) {
-    res.status(500).json({ message: err });
+    res.status(500).json({ message: err });//błąd serwera
   }
 });
 
