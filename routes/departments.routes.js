@@ -72,7 +72,6 @@ router.delete('/departments/:id', async (req, res) => {
     const dep = await(Department.findById(req.params.id));
     if(dep) {//deleteOne to odpowiednik deleteOne z Mongo Shell.
       await Department.deleteOne({ _id: req.params.id });
-      console.log('dep deleted Madzia:', dep);
       res.json({ message: 'OK', dep });
     }
     else res.status(404).json({ message: 'Not found...' });
