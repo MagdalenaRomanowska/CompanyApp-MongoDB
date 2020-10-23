@@ -4,7 +4,11 @@ const employeeSchema = new mongoose.Schema({//W schemacie ustalamy, że dane pow
     //_id = jego wartość jest nadawana automatycznie przez MongoDB, więc powinna zawsze być poprawna. 
     //Dlatego też możemy go w ogóle pominąć w schemacie (zakomentowałam):
     // _id: { type: mongoose.Types.ObjectId, required: true }, //oczekiwany typ to ObjectId.
-    name: { type: String, required: true } //drugi to name i ma mieć wartość tekstową.
+     //drugi to name i ma mieć wartość tekstową.
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
+    department: { type: String, required: true, ref: 'Department' }//Od teraz Mongoose już wie, że atrybut 
+    //department to referencja do dokumentu w kolekcji departments (model Department korzysta bowiem właśnie z departments).
 });
 
 module.exports = mongoose.model('Employee', employeeSchema);
