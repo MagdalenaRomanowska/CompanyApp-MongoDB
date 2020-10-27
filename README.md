@@ -10,3 +10,12 @@ or
 ```javascript
 npm start 
 ```
+### **Running tests**
+- One can run tests (Mocha, Chai) with command:
+```javascript
+yarn testing 
+```
+or
+```javascript
+npm testing 
+```

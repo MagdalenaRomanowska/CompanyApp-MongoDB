@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
-const departmentSchema = new mongoose.Schema({//W schemacie ustalamy, że dane powinny mieć 2 atrybuty. Oba są obowiązkowe (required: true). 
+const departmentSchema = new mongoose.Schema({//W schemacie ustalamy, że dane powinny mieć 2 atrybuty. 
+    //Oba są obowiązkowe (required: true). 
     //_id = jego wartość jest nadawana automatycznie przez MongoDB, więc powinna zawsze być poprawna. 
     //Dlatego też możemy go w ogóle pominąć w schemacie (zakomentowałam):
     // _id: { type: mongoose.Types.ObjectId, required: true }, //oczekiwany typ to ObjectId.
-    name: { type: String, required: true } //drugi to name i ma mieć wartość tekstową.
-});
+    name: { type: String, required: true, minlength: 5, maxlength: 20 } //drugi to name i ma mieć wartość tekstową.
+});//nazwa działu musi mieć 5 lub więcej znaków, ale nie może przekroczyć 20.
 
 module.exports = mongoose.model('Department', departmentSchema);
 //1szy parametr mówi nam jak nazywa się model, a 2gi określa z jakiego schematu struktury danych ma korzystać.

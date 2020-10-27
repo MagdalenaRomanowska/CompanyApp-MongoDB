@@ -52,7 +52,7 @@ exports.post = async (req, res) => {
 exports.put = async (req, res) => {
     const { firstName, lastName, department } = req.body;
     try {
-        const dep = await (Employee.findById(req.params.id));//znajdź odpowiedni dział po id.
+        const dep = await Employee.findById(req.params.id);//znajdź odpowiedni dział po id.
         if (dep) {
             dep.firstName = firstName;//zmień jego atrybut firstName na wartość z req.params.id.
             dep.lastName = lastName;

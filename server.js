@@ -21,7 +21,8 @@ app.use((req, res) => {
 })
 
 // connects our backend code with the database. Wybór bazy możemy określić od razu w adresie (mongodb://localhost:27017/companyDB).
-mongoose.connect('mongodb://localhost:27017/companyDB', { useNewUrlParser: true });//kod otwiera połączenie z serwerem bazy danych (mongodb://localhost:27017/) i przypisuje go do obiektu mongoose.connection.
+mongoose.connect('mongodb://localhost:27017/companyDB', { useNewUrlParser: true });//kod otwiera połączenie 
+//z serwerem bazy danych (mongodb://localhost:27017/) i przypisuje go do obiektu mongoose.connection.
 const db = mongoose.connection;//Skracamy sobie dostęp do naszej bazy danych przypisując referencję do stałej db.
 
 db.once('open', () => {//kiedy JS wykryje zdarzenie open, to w konsoli wypisze 'Connected to the database'.
