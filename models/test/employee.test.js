@@ -15,7 +15,7 @@ describe('Employee', () => {
     });
 
     it('should throw an error if "firstName", "lastName" or "department" is not a string', () => {
-        const cases = [{}, [] ];
+        const cases = [{}, []];
         for (let firstName of cases) {
             const empl = new Employee({ firstName, lastName: 'Doe', department: 'IT IT' });
             empl.validate(err => {
@@ -39,12 +39,12 @@ describe('Employee', () => {
     it('should not throw an error if "firstName", "lastName" or "department" is okay', () => {
         const cases = [{ firstName: "Maggie", lastName: "Smith", department: "5f8f0de0b95ae5eeb7c7cd67" }];
         for (let employeeData of cases) {//czy błędu nie będzie, jeśli wszystko wpiszemy dobrze.
-            const empl = new Employee( employeeData );
+            const empl = new Employee(employeeData);
             empl.validate(err => {
                 expect(err).to.not.exist;
             });//tym razem nie chcemy, aby jakikolwiek błąd się pojawił, stąd też to.not.exist zamiast to.exist.
         }
-        
+
     });
 });
 

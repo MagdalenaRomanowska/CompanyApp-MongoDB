@@ -5,8 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "eslint *.js */*.js",
-    "testing": "mocha --watch \"./{,!(node_modules)/**/}*.test.js\""
+    "test": "mocha --watch \"./{,!(node_modules)/**/}*.test.js\""
   },
   "dependencies": {
     "chai": "4.2.0",
@@ -18,8 +17,6 @@
     "nodemon": "^1.19.1"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.5.0",
-    "@typescript-eslint/parser": "^4.5.0",
     "eslint": "^7.11.0",
     "eslint-plugin-react": "^7.21.5"
   }

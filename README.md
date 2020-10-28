@@ -13,9 +13,9 @@ npm start
 ### **Running tests**
 - One can run tests (Mocha, Chai) with command:
 ```javascript
-yarn testing 
+yarn test 
 ```
 or
 ```javascript
-npm testing 
+npm test 
 ```
